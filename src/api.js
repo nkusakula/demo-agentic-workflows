@@ -46,3 +46,5 @@ module.exports = { createUser, getUser };
 // trigger docs-sync
 
 // re-trigger after allowed-files fix
+
+// re-trigger after lock fix
