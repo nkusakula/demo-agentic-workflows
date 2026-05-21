@@ -49,6 +49,3 @@ module.exports = { createUser, getUser };
 
 // re-trigger after lock fix
 
-// re-trigger after README.md fix
-
-// trigger after api.md rename
