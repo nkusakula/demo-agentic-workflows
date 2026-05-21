@@ -19,6 +19,9 @@ safe-outputs:
   create-pull-request:
     max: 1
     draft: false
+    allowed-files:
+      - "docs/**"
+      - "docs/README.md"
 
 engine: copilot
 
