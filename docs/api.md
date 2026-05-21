@@ -1,8 +1,4 @@
-# Sample API (docs intentionally drifted)
-
-> ⚠️ This README is out of date on purpose. The Documentation Sync agent
-> should detect the drift and open a PR that rewrites the `createUser`
-> section to match the current signature in `src/api.js`.
+# API Reference
 
 ## Installation
 
@@ -17,12 +13,11 @@ npm install @example/demo-api
 ```js
 const { createUser } = require("@example/demo-api");
 
-// OLD (pre-v1) signature — the one in src/api.js no longer matches this.
 const user = await createUser("Ada Lovelace", "ada@example.com");
 console.log(user.id, user.email);
 ```
 
-`createUser(name, email)` returns a `{ id, email }` pair.
+`createUser(name, email)` creates an account and returns a `{ id, name, email, createdAt }` record.
 
 ### Look up a user
 
@@ -36,11 +31,9 @@ const user = await getUser("abc123");
 
 | Function | Signature | Returns |
 |----------|-----------|---------|
-| `createUser` | `createUser(name, email)` | `{ id, email }` |
+| `createUser` | `createUser(name, email)` | `{ id, name, email, createdAt }` |
 | `getUser`    | `getUser(id)`             | `user \| null` |
 
 ## Changelog
 
 - **v0.9** — initial release with `createUser(name, email)`.
-- _(docs end here; v1.0 shipped a new payload-based signature but the
-  README was never updated — that's what the agent will fix)._
