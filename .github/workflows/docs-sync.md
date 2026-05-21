@@ -22,6 +22,7 @@ safe-outputs:
     allowed-files:
       - "docs/**"
       - "docs/README.md"
+      - "README.md"
 
 engine: copilot
 
