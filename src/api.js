@@ -1,17 +1,21 @@
 /**
  * Create a new user.
- * @param {string} name
- * @param {string} email
- * @returns {Promise<{ id: string, name: string, email: string, createdAt: string }>}
+ * @param {{ name: string, email: string, role?: "admin" | "member" }} payload
+ * @returns {Promise<{ id: string, name: string, email: string, role: string, createdAt: string }>}
  */
-async function createUser(name, email) {
+async function createUser(payload) {
+  if (!payload || typeof payload !== "object") {
+    throw new TypeError("createUser(payload): payload object is required");
+  }
+  const { name, email, role = "member" } = payload;
   if (!name || !email) {
-    throw new TypeError("createUser: name and email are required");
+    throw new TypeError("createUser(payload): name and email are required");
   }
   return {
     id: cryptoRandomId(),
     name,
     email,
+    role,
     createdAt: new Date().toISOString(),
   };
 }
