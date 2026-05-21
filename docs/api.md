@@ -13,11 +13,12 @@ npm install @example/demo-api
 ```js
 const { createUser } = require("@example/demo-api");
 
-const user = await createUser("Ada Lovelace", "ada@example.com");
+const user = await createUser({ name: "Ada Lovelace", email: "ada@example.com" });
 console.log(user.id, user.email);
 ```
 
-`createUser(name, email)` creates an account and returns a `{ id, name, email, createdAt }` record.
+`createUser(payload)` creates an account and returns a `{ id, name, email, role, createdAt }` record.
+`payload.role` defaults to `"member"`; pass `"admin"` to create an admin account.
 
 ### Look up a user
 
@@ -31,9 +32,10 @@ const user = await getUser("abc123");
 
 | Function | Signature | Returns |
 |----------|-----------|---------|
-| `createUser` | `createUser(name, email)` | `{ id, name, email, createdAt }` |
+| `createUser` | `createUser({ name, email, role? })` | `{ id, name, email, role, createdAt }` |
 | `getUser`    | `getUser(id)`             | `user \| null` |
 
 ## Changelog
 
 - **v0.9** — initial release with `createUser(name, email)`.
+- **v1.0** — `createUser` refactored to accept a single payload object `{ name, email, role? }`; return value now includes `role`.
