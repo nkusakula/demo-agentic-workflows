@@ -21,8 +21,6 @@ safe-outputs:
     draft: false
     allowed-files:
       - "docs/**"
-      - "docs/README.md"
-      - "README.md"
 
 engine: copilot
 
@@ -47,7 +45,7 @@ docs) to match.
 
 1. Inspect the latest diff: `git diff HEAD~1..HEAD -- 'src/**'`.
 2. For each exported function, class, or configuration key that changed,
-   search `docs/` for references. Use `grep -rn`.
+   search `docs/` for references (notably `docs/api.md`). Use `grep -rn`.
 3. If any doc snippet is now inaccurate (wrong signature, wrong
    parameter name, outdated example, removed field), rewrite it to match
    the current code.
